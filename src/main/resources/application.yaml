@@ -1,0 +1,22 @@
+application-version:
+  "1.0.0"
+application-description:
+  "liquibase-course"
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /api/liquibase-course
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/postgres?currentSchema=liquibase_course}
+    username: ${DB_LOGIN:myusername}
+    password: ${DB_PASSWORD:mypassword}
+  liquibase:
+    change-log: db-scripts/changelog.xml
+    default-schema: liquibase_course
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
